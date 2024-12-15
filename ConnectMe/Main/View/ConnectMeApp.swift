@@ -11,6 +11,7 @@ import SwiftData
 @main
 struct ConnectMeApp: App {
 
+    
     var body: some Scene {
         WindowGroup {
             LoginView()
