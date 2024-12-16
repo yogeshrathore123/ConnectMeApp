@@ -14,6 +14,8 @@ struct RegistrationView: View {
     @State var password: String = ""
     @State var confirmPassword: String = ""
     
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     var body: some View {
         VStack(spacing: 16) {
             Text("To Register Please Fill Below Details")
@@ -61,6 +63,10 @@ struct RegistrationView: View {
            
             
             Button {
+                
+                Task{
+                    await authViewModel.createUser(email: email, password: password, fullName: fullName)
+                }
                 
             } label: {
                 Text("Register")

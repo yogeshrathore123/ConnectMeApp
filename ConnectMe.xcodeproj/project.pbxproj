@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		ABA03F622D1008BC00F35E1B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = ABA03F612D1008BC00F35E1B /* FirebaseAuth */; };
+		ABA03F642D1008BC00F35E1B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = ABA03F632D1008BC00F35E1B /* FirebaseFirestore */; };
+		ABA03F662D1008BC00F35E1B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = ABA03F652D1008BC00F35E1B /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		ABA03EE72D0EECDE00F35E1B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +35,30 @@
 		ABA03EF02D0EECDE00F35E1B /* ConnectMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		ABA03F5E2D10077400F35E1B /* Exceptions for "ConnectMe" folder in "ConnectMeTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Resources/GoogleService-Info.plist",
+			);
+			target = ABA03EE52D0EECDE00F35E1B /* ConnectMeTests */;
+		};
+		ABA03F5F2D10077400F35E1B /* Exceptions for "ConnectMe" folder in "ConnectMeUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Resources/GoogleService-Info.plist",
+			);
+			target = ABA03EEF2D0EECDE00F35E1B /* ConnectMeUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		ABA03ED62D0EECDC00F35E1B /* ConnectMe */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				ABA03F5E2D10077400F35E1B /* Exceptions for "ConnectMe" folder in "ConnectMeTests" target */,
+				ABA03F5F2D10077400F35E1B /* Exceptions for "ConnectMe" folder in "ConnectMeUITests" target */,
+			);
 			path = ConnectMe;
 			sourceTree = "<group>";
 		};
@@ -52,6 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABA03F622D1008BC00F35E1B /* FirebaseAuth in Frameworks */,
+				ABA03F642D1008BC00F35E1B /* FirebaseFirestore in Frameworks */,
+				ABA03F662D1008BC00F35E1B /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +142,9 @@
 			);
 			name = ConnectMe;
 			packageProductDependencies = (
+				ABA03F612D1008BC00F35E1B /* FirebaseAuth */,
+				ABA03F632D1008BC00F35E1B /* FirebaseFirestore */,
+				ABA03F652D1008BC00F35E1B /* FirebaseStorage */,
 			);
 			productName = ConnectMe;
 			productReference = ABA03ED42D0EECDC00F35E1B /* ConnectMe.app */;
@@ -195,6 +228,9 @@
 			);
 			mainGroup = ABA03ECB2D0EECDC00F35E1B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				ABA03F602D1008BC00F35E1B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = ABA03ED52D0EECDC00F35E1B /* Products */;
 			projectDirPath = "";
@@ -552,6 +588,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ABA03F602D1008BC00F35E1B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ABA03F612D1008BC00F35E1B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABA03F602D1008BC00F35E1B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		ABA03F632D1008BC00F35E1B /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABA03F602D1008BC00F35E1B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		ABA03F652D1008BC00F35E1B /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABA03F602D1008BC00F35E1B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ABA03ECC2D0EECDC00F35E1B /* Project object */;
 }
