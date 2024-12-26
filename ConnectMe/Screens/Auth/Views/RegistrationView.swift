@@ -15,6 +15,7 @@ struct RegistrationView: View {
     @State var confirmPassword: String = ""
     
     @EnvironmentObject var authViewModel: AuthViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack(spacing: 16) {
@@ -68,6 +69,10 @@ struct RegistrationView: View {
                     await authViewModel.createUser(email: email, password: password, fullName: fullName)
                 }
                 
+                if !authViewModel.isError {
+                    presentationMode.wrappedValue.dismiss()
+                }
+                
             } label: {
                 Text("Register")
             }
@@ -87,4 +92,5 @@ struct RegistrationView: View {
 
 #Preview {
     RegistrationView()
+        .environmentObject(AuthViewModel())
 }

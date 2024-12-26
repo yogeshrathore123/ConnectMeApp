@@ -46,6 +46,7 @@ struct LoginView: View {
             .ignoresSafeArea()
             .padding(.horizontal)
             .padding(.vertical, 8)
+            .alert("Something Went wrong", isPresented: $authViewModel.isError) {}
         }
     }
     
@@ -160,4 +161,5 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
+        .environmentObject(AuthViewModel())
 }

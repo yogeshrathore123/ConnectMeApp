@@ -72,7 +72,7 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
-    func signOut() async {
+    func signOut() {
         do {
             currentUser = nil
             userSession = nil
@@ -80,5 +80,20 @@ final class AuthViewModel: ObservableObject {
         } catch{
             isError = true
         }
+    }
+    
+    func deleteAccount()async {
+        do {
+            currentUser = nil
+            userSession = nil
+            deleteUser(by: auth.currentUser?.uid ?? "") //user delete from firestore database
+            try await auth.currentUser?.delete() // user delete from auth
+        } catch {
+            isError = true
+        }
+    }
+    
+    private func deleteUser(by uid: String){
+        firestore.collection("users").document(uid).delete()
     }
 }
