@@ -12,42 +12,41 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var router: Router
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack(spacing: 16) {
-                    
-                    //logo
-                    logoView
-                    
-                    //tittle
-                    titleView
-                    
-                    Spacer().frame(height: 12)
-                    
-                    //textfield
-                    InputView(placeholder: "Email or Phone no", text: $email)
-                    InputView(placeholder: "password", isSecureField: true, text: $password)
-                    
-                    
-                    //forgot button
-                    forgotButtonView
-                    
-                    //login button
-                    loginButtonView
-                    
-                    Spacer()
-                    
-                    //bottom view
-                    bottomView
-                }
+        ScrollView {
+            VStack(spacing: 16) {
+                
+                //logo
+                logoView
+                
+                //tittle
+                titleView
+                
+                Spacer().frame(height: 12)
+                
+                //textfield
+                InputView(placeholder: "Email or Phone no", text: $email)
+                InputView(placeholder: "password", isSecureField: true, text: $password)
+                
+                
+                //forgot button
+                forgotButtonView
+                
+                //login button
+                loginButtonView
+                
+                Spacer()
+                
+                //bottom view
+                bottomView
             }
-            .ignoresSafeArea()
-            .padding(.horizontal)
-            .padding(.vertical, 8)
-            .alert("Something Went wrong", isPresented: $authViewModel.isError) {}
         }
+        .ignoresSafeArea()
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+        .alert("Something Went wrong", isPresented: $authViewModel.isError) {}
     }
     
     private var line: some View {
@@ -73,15 +72,15 @@ struct LoginView: View {
         HStack {
             Spacer()
             
-            NavigationLink {
-                ForgotPasswordView()
-                    .environmentObject(authViewModel)
+            Button {
+                router.navigateTo(to: .forgotPassword)
             } label: {
                 Text("Forgot Password?")
                     .foregroundStyle(.gray)
                     .font(.subheadline)
                     .fontWeight(.medium)
             }
+            
         }
     }
     
@@ -144,9 +143,9 @@ struct LoginView: View {
     }
     
     private var footerview: some View {
-        NavigationLink {
-            RegistrationView()
-                .environmentObject(authViewModel)
+        
+        Button {
+            router.navigateTo(to: .registrationAccount)
         } label: {
             HStack{
                 Text("Don`t have an account?")
@@ -156,7 +155,6 @@ struct LoginView: View {
             }
             .fontWeight(.medium)
         }
-        
     }
 }
 

@@ -24,11 +24,24 @@ struct ConnectMeApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var authViewModel = AuthViewModel()
+    @ObservedObject private var router = Router()
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(authViewModel)
+            NavigationStack(path: $router.navPath) {
+                ContentView()
+                    .navigationDestination(for: Router.AuthFlow.self) { destination in
+                        switch destination {
+                        case .login: LoginView()
+                        case .forgotPassword: ForgotPasswordView()
+                        case .registrationAccount: RegistrationView()
+                        case .emailSent: EmailSentView()
+                        case .profile: ProfileView()
+                        }
+                    }
+            }
+            .environmentObject(authViewModel)
+            .environmentObject(router)
         }
     }
 }

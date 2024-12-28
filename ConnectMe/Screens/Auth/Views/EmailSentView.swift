@@ -1,3 +1,4 @@
+
 //
 //  EmailSentView.swift
 //  ConnectMe
@@ -9,7 +10,7 @@ import SwiftUI
 
 struct EmailSentView: View {
     
-    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var router: Router
     
     var body: some View {
         VStack(spacing: 24) {
@@ -21,7 +22,7 @@ struct EmailSentView: View {
                 .scaledToFit()
                 .frame(width: 100, height: 100)
                 .foregroundStyle(.teal)
-                
+            
             
             VStack(spacing: 8) {
                 Text("Check your email")
@@ -32,9 +33,9 @@ struct EmailSentView: View {
                     .fontWeight(.semibold)
                     .foregroundStyle(.secondary)
             }
-
+            
             Button {
-                
+                router.navigateToRoot()
             } label: {
                 Text("Skip, I`ll confirm later")
             }
@@ -43,7 +44,7 @@ struct EmailSentView: View {
             Spacer()
             
             Button {
-                dismiss()
+                router.navigateBack()
             } label: {
                 (Text("Did not receive the email? Check your spam folder, or ")
                     .foregroundStyle(.gray)

@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     
     @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var router: Router
     
     var body: some View {
         
@@ -61,10 +62,8 @@ struct ProfileView: View {
                             Image(systemName: "xmark.circle.fill")
                                 .foregroundStyle(.red)
                         }
-
+                        
                     }
-
-
                 }
             }
         } else {

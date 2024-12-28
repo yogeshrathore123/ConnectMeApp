@@ -16,6 +16,7 @@ struct RegistrationView: View {
     
     @EnvironmentObject var authViewModel: AuthViewModel
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var router: Router
     
     var body: some View {
         VStack(spacing: 16) {
@@ -42,7 +43,7 @@ struct RegistrationView: View {
                 text: $password
             )
             
-            ZStack(alignment: .trailing) {
+            VStack(alignment: .trailing) {
                 InputView(
                     placeholder: "Confirm Password",
                     isSecureField: true,
@@ -58,10 +59,7 @@ struct RegistrationView: View {
                 }
             }
             
-            
             Spacer()
-            
-           
             
             Button {
                 
@@ -77,7 +75,7 @@ struct RegistrationView: View {
                 Text("Register")
             }
             .buttonStyle(CapsuleButtonStyle())
-
+            
         }
         .navigationTitle("Registeration")
         .toolbarRole(.editor)
