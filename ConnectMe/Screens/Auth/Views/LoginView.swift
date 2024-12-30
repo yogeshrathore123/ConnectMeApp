@@ -145,7 +145,7 @@ struct LoginView: View {
     private var footerview: some View {
         
         Button {
-            router.navigateTo(to: .registrationAccount)
+            router.navigateTo(to: .registrationAccount(item: .init(name: "Hi User")))
         } label: {
             HStack{
                 Text("Don`t have an account?")

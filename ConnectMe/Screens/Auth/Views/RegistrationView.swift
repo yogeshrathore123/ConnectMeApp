@@ -17,9 +17,11 @@ struct RegistrationView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var router: Router
+    var name: String = ""
     
     var body: some View {
         VStack(spacing: 16) {
+            Text(name)
             Text("To Register Please Fill Below Details")
                 .font(.headline)
                 .fontWeight(.medium)

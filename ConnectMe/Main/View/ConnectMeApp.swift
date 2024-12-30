@@ -31,13 +31,7 @@ struct ConnectMeApp: App {
             NavigationStack(path: $router.navPath) {
                 ContentView()
                     .navigationDestination(for: Router.AuthFlow.self) { destination in
-                        switch destination {
-                        case .login: LoginView()
-                        case .forgotPassword: ForgotPasswordView()
-                        case .registrationAccount: RegistrationView()
-                        case .emailSent: EmailSentView()
-                        case .profile: ProfileView()
-                        }
+                        router.destination(for: destination)
                     }
             }
             .environmentObject(authViewModel)

@@ -7,13 +7,17 @@
 
 import SwiftUI
 
+struct Item: Codable, Hashable {
+    let name: String
+}
+
 final class Router: ObservableObject {
     
     @Published var navPath = NavigationPath()
     
     enum AuthFlow: Codable, Hashable {
         case login
-        case registrationAccount
+        case registrationAccount(item: Item)
         case profile
         case forgotPassword
         case emailSent
